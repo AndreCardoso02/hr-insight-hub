@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { TrendingUp, TrendingDown, Minus } from "lucide-react";
+import { TrendingUp, TrendingDown, Minus, ChevronRight } from "lucide-react";
 
 interface KPICardProps {
   title: string;
@@ -10,6 +10,8 @@ interface KPICardProps {
   trendLabel?: string;
   icon: React.ReactNode;
   variant?: "default" | "success" | "warning" | "destructive" | "info";
+  onClick?: () => void;
+  clickable?: boolean;
 }
 
 const variantStyles = {
@@ -36,6 +38,8 @@ export function KPICard({
   trendLabel,
   icon,
   variant = "default",
+  onClick,
+  clickable = true,
 }: KPICardProps) {
   const getTrendIcon = () => {
     if (trend === undefined || trend === 0) return <Minus className="h-3 w-3" />;
@@ -52,11 +56,23 @@ export function KPICard({
   };
 
   return (
-    <Card className={cn("border transition-all hover:shadow-md", variantStyles[variant])}>
+    <Card
+      className={cn(
+        "border transition-all",
+        variantStyles[variant],
+        clickable && "cursor-pointer hover:shadow-lg hover:scale-[1.02] active:scale-[0.99]"
+      )}
+      onClick={onClick}
+    >
       <CardContent className="p-6">
         <div className="flex items-start justify-between">
-          <div className="space-y-2">
-            <p className="text-sm font-medium text-muted-foreground">{title}</p>
+          <div className="space-y-2 flex-1">
+            <div className="flex items-center justify-between">
+              <p className="text-sm font-medium text-muted-foreground">{title}</p>
+              {clickable && (
+                <ChevronRight className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+              )}
+            </div>
             <p className="text-3xl font-bold tracking-tight text-foreground">{value}</p>
             {subtitle && (
               <p className="text-sm text-muted-foreground">{subtitle}</p>
@@ -75,6 +91,14 @@ export function KPICard({
             {icon}
           </div>
         </div>
+        {clickable && (
+          <div className="mt-3 pt-3 border-t border-border/50">
+            <p className="text-xs text-muted-foreground flex items-center gap-1">
+              Clique para ver detalhes
+              <ChevronRight className="h-3 w-3" />
+            </p>
+          </div>
+        )}
       </CardContent>
     </Card>
   );
