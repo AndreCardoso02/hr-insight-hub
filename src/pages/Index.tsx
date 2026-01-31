@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { DashboardHeader } from "@/components/dashboard/DashboardHeader";
 import { KPICard } from "@/components/dashboard/KPICard";
 import { AbsenteeismChart } from "@/components/dashboard/AbsenteeismChart";
@@ -8,6 +9,7 @@ import { VacationLeaveCard } from "@/components/dashboard/VacationLeaveCard";
 import { PerformanceCard } from "@/components/dashboard/PerformanceCard";
 import { KPIDetailModal, KPIDetailData } from "@/components/dashboard/KPIDetailModal";
 import { FilterState } from "@/components/dashboard/DashboardFilters";
+import { Button } from "@/components/ui/button";
 import {
   employeeStats,
   admissionsExits,
@@ -20,6 +22,7 @@ import {
   Clock,
   TrendingUp,
   TrendingDown,
+  LayoutDashboard,
 } from "lucide-react";
 
 const Index = () => {
