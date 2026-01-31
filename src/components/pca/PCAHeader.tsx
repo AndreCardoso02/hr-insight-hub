@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Download, RefreshCw, ArrowLeft } from "lucide-react";
+import { Download, RefreshCw, ArrowLeft, Wallet } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function PCAHeader() {
@@ -30,6 +30,12 @@ export function PCAHeader() {
           </div>
         </div>
         <div className="flex items-center gap-2">
+          <Link to="/financeiro">
+            <Button variant="default" size="sm" className="gap-2">
+              <Wallet className="h-4 w-4" />
+              Financeiro
+            </Button>
+          </Link>
           <Button variant="outline" size="sm" className="gap-2">
             <Download className="h-4 w-4" />
             Relatório Executivo
