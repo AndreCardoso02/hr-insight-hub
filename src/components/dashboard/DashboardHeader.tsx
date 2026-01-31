@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Download, RefreshCw, Settings, LayoutDashboard } from "lucide-react";
+import { Download, RefreshCw, Settings, LayoutDashboard, Wallet } from "lucide-react";
 import { DashboardFilters, FilterState } from "./DashboardFilters";
 import { Link } from "react-router-dom";
 
@@ -28,9 +28,15 @@ export function DashboardHeader({ filters, onFiltersChange }: DashboardHeaderPro
           </div>
           <div className="flex items-center gap-2">
             <Link to="/pca">
-              <Button variant="default" size="sm" className="gap-2">
+              <Button variant="outline" size="sm" className="gap-2">
                 <LayoutDashboard className="h-4 w-4" />
                 Dashboard PCA
+              </Button>
+            </Link>
+            <Link to="/financeiro">
+              <Button variant="default" size="sm" className="gap-2">
+                <Wallet className="h-4 w-4" />
+                Financeiro
               </Button>
             </Link>
             <Button variant="outline" size="sm" className="gap-2">
