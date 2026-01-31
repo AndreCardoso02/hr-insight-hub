@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Download, RefreshCw, Settings } from "lucide-react";
+import { Download, RefreshCw, Settings, LayoutDashboard } from "lucide-react";
 import { DashboardFilters, FilterState } from "./DashboardFilters";
+import { Link } from "react-router-dom";
 
 interface DashboardHeaderProps {
   filters: FilterState;
@@ -26,6 +27,12 @@ export function DashboardHeader({ filters, onFiltersChange }: DashboardHeaderPro
             </p>
           </div>
           <div className="flex items-center gap-2">
+            <Link to="/pca">
+              <Button variant="default" size="sm" className="gap-2">
+                <LayoutDashboard className="h-4 w-4" />
+                Dashboard PCA
+              </Button>
+            </Link>
             <Button variant="outline" size="sm" className="gap-2">
               <Download className="h-4 w-4" />
               Exportar
