@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Download, RefreshCw, Settings, LayoutDashboard, Wallet } from "lucide-react";
+import { Download, RefreshCw, Settings, LayoutDashboard, Wallet, ClipboardCheck } from "lucide-react";
 import { DashboardFilters, FilterState } from "./DashboardFilters";
 import { Link } from "react-router-dom";
 
@@ -37,6 +37,12 @@ export function DashboardHeader({ filters, onFiltersChange }: DashboardHeaderPro
               <Button variant="default" size="sm" className="gap-2">
                 <Wallet className="h-4 w-4" />
                 Financeiro
+              </Button>
+            </Link>
+            <Link to="/avaliacoes">
+              <Button variant="outline" size="sm" className="gap-2">
+                <ClipboardCheck className="h-4 w-4" />
+                Avaliações
               </Button>
             </Link>
             <Button variant="outline" size="sm" className="gap-2">
